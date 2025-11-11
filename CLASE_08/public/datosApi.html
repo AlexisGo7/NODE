@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cócteles Interactivos</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      color: #e0e0e0;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      background: url('https://images.unsplash.com/photo-1607083206173-3b3c2f9a2c1e') no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: brightness(0.6);
+    }
+
+    h1 {
+      color: #ff00ff;
+      text-shadow: 0 0 10px #00f7ff, 0 0 20px #00e1ff;
+      font-size: 2.8em;
+      margin-bottom: 30px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #333;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(25, 1, 25, 0.2);
+      width: 240px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      color: #fff;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(1, 251, 22, 0.4);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #ff00ff;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+      border-radius: 10px;
+      width: 90%;
+      max-width: 420px;
+      padding: 20px;
+      text-align: left;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+      color: #fe0000;
+      box-shadow: 0 0 20px rgba(255,0,255,0.3);
+    }
+
+    .modal-content img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #00ffff;
+      opacity: 0.95;
+      box-shadow: 0 0 15px rgba(0,255,255,0.4);
+    }
+
+    .modal-content h2 {
+      margin-top: 10px;
+      color: #00ffff;
+      text-shadow: 0 0 5px #00ffff;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #00ffcc;
+      text-shadow: 0 0 5px #ff00ff;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+  </style>
+</head>
+<body>
+  <h1>🍹 Cócteles Aleatorios</h1>
+  <div class="container">
+        <div class="card" 
+             data-name="Boston Sour" 
+             data-img="https://www.thecocktaildb.com/images/media/drink/kxlgbi1504366100.jpg" 
+             data-instructions="Shake juice of lemon, powdered sugar, blended whiskey, and egg white with cracked ice and strain into a whiskey sour glass. Add the slice of lemon, top with the cherry, and serve."
+             data-ingredients="2 oz  Blended whiskey, Juice of 1/2  Lemon, 1 tsp  Powdered sugar, 1  Egg white, 1 slice  Lemon, 1  Cherry">
+
+          <img src="https://www.thecocktaildb.com/images/media/drink/kxlgbi1504366100.jpg" alt="Boston Sour">
+          <h2>Boston Sour</h2>
+          <p><strong>Ordinary Drink</strong></p>
+          <p>Alcoholic</p>
+        </div>
+      
+        <div class="card" 
+             data-name="Imperial Fizz" 
+             data-img="https://www.thecocktaildb.com/images/media/drink/zj1usl1504884548.jpg" 
+             data-instructions="Shake all ingredients (except carbonated water) with ice and strain into a highball glass over two ice cubes. Fill with carbonated water, stir, and serve."
+             data-ingredients="1/2 oz  Light rum, 1 1/2 oz  Blended whiskey, Juice of 1/2  Lemon, 1 tsp  Powdered sugar,  Carbonated water">
+
+          <img src="https://www.thecocktaildb.com/images/media/drink/zj1usl1504884548.jpg" alt="Imperial Fizz">
+          <h2>Imperial Fizz</h2>
+          <p><strong>Ordinary Drink</strong></p>
+          <p>Alcoholic</p>
+        </div>
+      
+        <div class="card" 
+             data-name="Pornstar Martini" 
+             data-img="https://www.thecocktaildb.com/images/media/drink/xjhjdf1630406071.jpg" 
+             data-instructions="Straight: Pour all ingredients into mixing glass with ice cubes. Shake well. Strain in chilled martini cocktail glass. Cut passion fruit in half and use as garnish. Pour prosecco into a chilled shot glass and serve alongside the martini."
+             data-ingredients="3 cl Vodka, 3 cl Passoa, 1 cl Passion fruit juice, 1 cl Lime, 1 shot Prosecco">
+
+          <img src="https://www.thecocktaildb.com/images/media/drink/xjhjdf1630406071.jpg" alt="Pornstar Martini">
+          <h2>Pornstar Martini</h2>
+          <p><strong>Cocktail</strong></p>
+          <p>Alcoholic</p>
+        </div>
+      
+        <div class="card" 
+             data-name="Oatmeal Cookie" 
+             data-img="https://www.thecocktaildb.com/images/media/drink/bsvmlg1515792693.jpg" 
+             data-instructions="Just mix it all together.
+It's meant to be a shot, but it works just fine as a proper adult-sized drink over lots of ice.
+
+Tastes like an oatmeal cookie."
+             data-ingredients="2 parts Kahlua, 2 parts Baileys irish cream, 4 parts Butterscotch schnapps, 1 part Jagermeister, 1/2 part Goldschlager">
+
+          <img src="https://www.thecocktaildb.com/images/media/drink/bsvmlg1515792693.jpg" alt="Oatmeal Cookie">
+          <h2>Oatmeal Cookie</h2>
+          <p><strong>Cocktail</strong></p>
+          <p>Alcoholic</p>
+        </div>
+      
+        <div class="card" 
+             data-name="Aviation" 
+             data-img="https://www.thecocktaildb.com/images/media/drink/trbplb1606855233.jpg" 
+             data-instructions="Add all ingredients into cocktail shaker filled with ice. Shake well and strain into cocktail glass. Garnish with a cherry."
+             data-ingredients="4.5 cl Gin, 1.5 cl lemon juice, 1.5 cl maraschino liqueur">
+
+          <img src="https://www.thecocktaildb.com/images/media/drink/trbplb1606855233.jpg" alt="Aviation">
+          <h2>Aviation</h2>
+          <p><strong>Cocktail</strong></p>
+          <p>Alcoholic</p>
+        </div>
+      </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <img id="modal-img" src="" alt="">
+      <h2 id="modal-title"></h2>
+      <p><strong>Ingredientes:</strong></p>
+      <ul id="modal-ingredients"></ul>
+      <p><strong>Instrucciones:</strong></p>
+      <p id="modal-instructions"></p>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalInstructions = document.getElementById('modal-instructions');
+    const modalIngredients = document.getElementById('modal-ingredients');
+    const closeBtn = document.querySelector('.close-btn');
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        const name = card.dataset.name;
+        const img = card.dataset.img;
+        const instructions = card.dataset.instructions;
+        const ingredients = card.dataset.ingredients.split(',');
+
+        modalImg.src = img;
+        modalTitle.textContent = name;
+        modalInstructions.textContent = instructions;
+        modalIngredients.innerHTML = ingredients.map(ing => `<li>${ing.trim()}</li>`).join('');
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeBtn.onclick = () => modal.style.display = 'none';
+    modal.onclick = (e) => {
+      if (e.target === modal) modal.style.display = 'none';
+    };
+  </script>
+</body>
+</html>
